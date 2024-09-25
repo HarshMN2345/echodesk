@@ -6,15 +6,14 @@ import { buttonVariants } from './ui/buttons';
 
 interface Article {
   title: string;
-  summary: string;
+  brief_summary: string;
   body: string;
-  wordcloud_link: string;
 }
 
 export function ArticleScrollComponent(): JSX.Element {
   const [articles, setArticles] = useState<Article[]>([]);
   const [showBody, setShowBody] = useState<{ [key: number]: boolean }>({});
-  const [showWordCloud, setShowWordCloud] = useState<{ [key: number]: boolean }>({});
+  // const [showWordCloud, setShowWordCloud] = useState<{ [key: number]: boolean }>({});
 
   useEffect(() => {
     fetchArticles();
@@ -41,7 +40,7 @@ export function ArticleScrollComponent(): JSX.Element {
           <h1 className="text-4xl font-semibold text-black dark:text-white">
             {article.title}
           </h1>
-          <p className="text-xl mb-4">{article.summary}</p>
+          <p className="text-xl mb-4">{article.brief_summary}</p>
           
           <button 
             onClick={() => setShowBody(prev => ({ ...prev, [index]: !prev[index] }))}
@@ -57,29 +56,7 @@ export function ArticleScrollComponent(): JSX.Element {
             <div className="article-body mb-4">
               {article.body}
             </div>
-          )}
-          
-          <button 
-            onClick={() => setShowWordCloud(prev => ({ ...prev, [index]: !prev[index] }))}
-            className={buttonVariants({
-              size: "lg",
-              variant:'ghost',
-              className: "mt-5",
-            })}
-          >
-            {showWordCloud[index] ? 'Hide Word Cloud' : 'View Word Cloud'}
-          </button>
-          
-          {showWordCloud[index] && (
-            <Image
-              src={article.wordcloud_link}
-              alt="Word Cloud"
-              height={400}
-              width={600}
-              className="mx-auto rounded-2xl object-cover"
-              draggable={false}
-            />
-          )}
+          )} 
         </div>
       ))}
     </div>

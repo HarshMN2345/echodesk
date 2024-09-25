@@ -1,5 +1,6 @@
 "use client";
 import { ArticleScrollComponent } from "@/components/ArticleScrollComponent";
+import InsightsComponent from "@/components/InsightsComponent";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { buttonVariants } from "@/components/ui/buttons";
@@ -7,8 +8,10 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('top-news');
   return (
     <>
       <MaxWidthWrapper className="mb-12 px-10 mt-28 sm:mt-40 flex flex-col items-center justify-center">
@@ -64,14 +67,42 @@ export default function Home() {
       </ContainerScroll>
     </div>
         </BackgroundBeamsWithCollision>
-        <div className="mt-18">
-        <h1 className=" mt-12 text-4xl font-bold text-left bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 text-transparent [text-shadow:0_0_rgba(0,0,0,0.1)] mb-8">
-          Top News
-        </h1>
+        <div className="mt-18 ">
+          <div className="flex justify-start space-x-4 mb-8">
+            <h1 
+              className={`text-4xl font-bold cursor-pointer ${
+                activeTab === 'top-news' 
+                  ? 'bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 text-transparent' 
+                  : 'text-gray-500'
+              }`}
+              onClick={() => setActiveTab('top-news')}
+            >
+              Top News
+            </h1>
+            <span className="text-4xl font-bold text-gray-300">|</span>
+            <h1 
+              className={`text-4xl font-bold cursor-pointer ${
+                activeTab === 'insights' 
+                  ? 'bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 text-transparent' 
+                  : 'text-gray-500'
+              }`}
+              onClick={() => setActiveTab('insights')}
+            >
+              Insights
+            </h1>
+          </div>
         </div>
-
-        <div  id="top-news" className="mt-8">
-          <ArticleScrollComponent />
+        
+        <div className="mt-8 w-full">
+          {activeTab === 'top-news' ? (
+            <div id="top-news">
+              <ArticleScrollComponent />
+            </div>
+          ) : (
+            <div id="insights">
+              <InsightsComponent />
+            </div>
+          )}
         </div>
       </MaxWidthWrapper>
     </>

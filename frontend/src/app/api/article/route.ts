@@ -6,7 +6,7 @@ export async function GET() {
     const client = await clientPromise;
     const db = client.db('News_db'); // Replace with your actual database name
 
-    const article = await db.collection('news_articles').find({}).toArray(); // Adjust query as needed
+    const article = await db.collection('MixXyleneInsights').find({}).toArray(); // Adjust query as needed
 
     if (!article) {
       return NextResponse.json({ message: 'Article not found' }, { status: 404 });
