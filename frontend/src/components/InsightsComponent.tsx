@@ -11,9 +11,9 @@ const InsightsComponent = () => {
 
       <h3 className="text-2xl font-semibold mt-6 mb-3">Key Trends</h3>
       <ul className="list-disc pl-6 mb-4 ">
-        <li><strong>Para-xylene Demand Surge:</strong> The rising demand for para-xylene, a critical ingredient in the production of polyethylene terephthalate (PET), is a major driver of the mixed xylene market. PET's widespread use in packaging, textiles, and other applications fuels this demand.</li>
-        <li><strong>Solvent Applications:</strong> Mixed xylene's effectiveness as a solvent in various industrial processes, including paints, coatings, and adhesives, is driving its adoption and contributing to market growth.</li>
-        <li><strong>Bio-Based Innovations:</strong> Research and development efforts focused on bio-based mixed xylene and its potential as a fuel blending agent are expected to open new avenues for market expansion.</li>
+      <li><strong>Para-xylene Demand Surge:</strong> The rising demand for para-xylene, a critical ingredient in the production of polyethylene terephthalate (PET), is a major driver of the mixed xylene market. PET&apos;s widespread use in packaging, textiles, and other applications fuels this demand.</li>
+<li><strong>Solvent Applications:</strong> Mixed xylene&apos;s effectiveness as a solvent in various industrial processes, including paints, coatings, and adhesives, is driving its adoption and contributing to market growth.</li>
+<li><strong>Bio-Based Innovations:</strong> Research and development efforts focused on bio-based mixed xylene and its potential as a fuel blending agent are expected to open new avenues for market expansion.</li>
       </ul>
 
       <h3 className="text-2xl font-semibold mt-6 mb-3">Company Trends</h3>
